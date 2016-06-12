@@ -1,5 +1,46 @@
-body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+@font-face {
+    font-family: TrouserDrop;
+    src: url("../fonts/trouserdrop.ttf");
+    font-weight: bold;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Lato);
+
+html, body {
+  height: 100%;
+  font: 14px Lato, Arial, sans-serif;
+  background: url("../img/background.png");
+}
+
+.main {
+  height: 100%;
+  padding: 0;
+  background-color: #E3F2FD;
+  border: 1px solid #74B2DA;
+}
+
+.navbar {
+  margin: 0;
+}
+
+.content {
+  padding: 10px;
+}
+
+.content-main-img {
+  float: left;
+  width: 50%;
+  margin: 20px;
+  margin-bottom: 40px;
+  border-radius: 50%;
+  box-shadow: -1px 5px 20px 5px #EDED02;
+}
+
+.content-main-txt h1{
+    font-family: TrouserDrop, Arial, sans-serif;
+    margin-bottom: 30px;
+    font-weight: bold;
+    color: #00B7FF;
 }
 
 a {
@@ -8,4 +49,8 @@ a {
 
 .hidden {
   display: none;
+}
+
+.signin-error {
+    color: red;
 }

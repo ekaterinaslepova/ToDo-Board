@@ -1,0 +1,18 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">ToDo Board</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">Board</a></li>
+            <% if (user) { %>
+            <li class="signout"><a href="logout">Signout</a></li>
+            <li class="signin hidden"><a href="#" data-toggle="modal" data-target="#myModal">Signin</a></li>
+            <% } else { %>
+            <li class="signout hidden"><a href="logout">Signout</a></li>
+            <li class="signin"><a href="#" data-toggle="modal" data-target="#myModal">Signin</a></li>
+            <% } %>
+        </ul>
+    </div>
+</nav>

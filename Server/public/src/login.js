@@ -1,8 +1,9 @@
 $(function() {
     $('#login').submit(function(e){
         e.preventDefault();
+        var form = $(this);
 
-        $.post('/login', $(this).serialize())
+        $.post('/login', form.serialize())
             .done(function() {
                 $('#myModal').modal('hide');
                 $('.signin').toggleClass('hidden');
@@ -10,6 +11,7 @@ $(function() {
             })
             .fail(function() {
                 $('.signin-error').toggleClass('hidden');
+                form.find('input').val('');
             });
     });
 })

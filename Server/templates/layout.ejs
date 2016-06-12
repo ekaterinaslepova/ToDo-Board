@@ -8,51 +8,12 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-<div class="container">
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">ToDo Board</a>
-            </div>
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#">Board</a></li>
-                <% if (user) { %>
-                <li class="signout"><a href="logout">Signout</a></li>
-                <li class="signin hidden"><a href="#" data-toggle="modal" data-target="#myModal">Signin</a></li>
-                <% } else { %>
-                <li class="signout hidden"><a href="logout">Signout</a></li>
-                <li class="signin"><a href="#" data-toggle="modal" data-target="#myModal">Signin</a></li>
-                <% } %>
-            </ul>
-        </div>
-    </nav>
+<div class="container main">
+    <%- include partial/navbar.ejs -%>
 
     <%- body -%>
 
-    <!-- Login Modal -->
-    <div id="myModal" class="modal fade">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Modal Header</h4>
-                </div>
-                <div class="modal-body">
-                    <p class="hidden signin-error">Error!!!</p>
-                    <form method="post" action="/" id="login">
-                        <input type="text" name="username"/>
-                        <input type="password" name="password"/>
-                        <input type="submit" value="Submit"/>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-
-        </div>
-    </div>
+    <%- include partial/login.ejs -%>
 
     <footer class="footer">
 
