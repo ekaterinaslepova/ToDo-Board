@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ToDo Board</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">ToDo Board</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">Board</a></li>
+                <% if (user) { %>
+                <li><a href="logout">Signout</a></li>
+                <% } else { %>
+                <li><a href="login">Signin</a></li>
+                <% } %>
+            </ul>
+        </div>
+    </nav>
+
+    <%- body -%>
+
+    <footer class="footer">
+
+    </footer>
+</div>
+</body>
+</html>

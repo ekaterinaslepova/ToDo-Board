@@ -11,6 +11,7 @@ const mongoose = require('./utils/mongoose');
 
 const app = express();
 
+app.engine('ejs', require('ejs-locals'));
 app.set('views', path.join(__dirname, './templates'));
 app.set('view engine', 'ejs');
 
@@ -25,15 +26,15 @@ app.use(session({
 }));
 
 app.use(router);
+app.use(express.static(path.join(__dirname, 'public')));
 
 if (app.get('env') === 'development') {
     app.use(errorhandler());
 }
 
 app.use((err, req, res, next) => {
-    log.error(err);
-    if (app.get('env') !== 'development') {
-        res.sendStatus(500);
+    if (err === '403') {
+        require('./src/login')(res, true);
     }
 });
 
