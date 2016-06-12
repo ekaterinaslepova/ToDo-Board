@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
 <div class="container">
@@ -17,9 +18,11 @@
                 <li class="active"><a href="#">Home</a></li>
                 <li><a href="#">Board</a></li>
                 <% if (user) { %>
-                <li><a href="logout">Signout</a></li>
+                <li class="signout"><a href="logout">Signout</a></li>
+                <li class="signin hidden"><a href="#" data-toggle="modal" data-target="#myModal">Signin</a></li>
                 <% } else { %>
-                <li><a href="login">Signin</a></li>
+                <li class="signout hidden"><a href="logout">Signout</a></li>
+                <li class="signin"><a href="#" data-toggle="modal" data-target="#myModal">Signin</a></li>
                 <% } %>
             </ul>
         </div>
@@ -27,9 +30,37 @@
 
     <%- body -%>
 
+    <!-- Login Modal -->
+    <div id="myModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+                    <p class="hidden signin-error">Error!!!</p>
+                    <form method="post" action="/" id="login">
+                        <input type="text" name="username"/>
+                        <input type="password" name="password"/>
+                        <input type="submit" value="Submit"/>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
     <footer class="footer">
 
     </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="src/login.js"></script>
 </div>
 </body>
 </html>

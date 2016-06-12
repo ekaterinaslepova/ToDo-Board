@@ -3,11 +3,10 @@ const User = require('../models/user');
 const router = express.Router();
 
 router.get('/', (req, res, next) => {
-    res.render('index', {user: req.session.user});
-});
-
-router.get('/login', (req, res, next) => {
-    require('../src/login')(res, false);
+    res.render('index', {user: req.session.user}, (err, html) => {
+        if (err) return next(err);
+        res.send(html);
+    });
 });
 
 router.post('/login', (req, res, next) => {

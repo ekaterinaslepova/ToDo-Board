@@ -34,7 +34,7 @@ if (app.get('env') === 'development') {
 
 app.use((err, req, res, next) => {
     if (err === '403') {
-        require('./src/login')(res, true);
+        res.sendStatus(403);
     }
 });
 
